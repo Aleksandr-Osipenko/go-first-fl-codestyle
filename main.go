@@ -60,6 +60,8 @@ func training(name, class string) string {
 		fmt.Println("%s, ты Маг - превосходный укротитель стихий.\n", name)
 	case "healer":
 		fmt.Println("%s, ты Лекарь - чародей, способный исцелять раны.\n", name)
+	default:
+		fmt.Println("неизвестный класс персонажа")
 	}
 
 	fmt.Println("Потренируйся управлять своими навыками.")
@@ -81,10 +83,11 @@ func training(name, class string) string {
 			fmt.Println(defence(name, class))
 		case "special":
 			fmt.Println(special(name, class))
+		default:
+            fmt.Println("")
 		}
-
-		return "тренировка окончена"
 	}
+	return "тренировка окончена"	
 }
 
 // обратите внимание на имя функции и имена переменных
@@ -102,7 +105,9 @@ func choiseClass() string {
 		case "mage":
 			fmt.Println("Маг — находчивый воин дальнего боя. Обладает высоким интеллектом.")
 		case "healer":
-			fmt.Println("Лекарь — могущественный заклинатель. Черпает силы из природы, веры и духов.")
+            fmt.Println("Лекарь — могущественный заклинатель. Черпает силы из природы, веры и духов.")
+		default:
+			fmt.Println("Неверный выбор.")
 		}
 
 		fmt.Print("Нажми (Y), чтобы подтвердить выбор, или любую другую кнопку, чтобы выбрать другого персонажа: ")
@@ -110,6 +115,7 @@ func choiseClass() string {
 		approveChoice = strings.ToLower(approveChoice)
 	}
 	return class
+
 }
 
 // обратите внимание на имена переменных
