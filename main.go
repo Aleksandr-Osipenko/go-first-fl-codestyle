@@ -9,32 +9,44 @@ import (
 func attack(name, class string) string {
 
 	switch class {
-		case "warrior": return fmt.Sprintf("%s нанес урон противнику равный %d.", name, 5+randint(3, 5))
-		case "mage": return fmt.Sprintf("%s нанес урон противнику равный %d.", name, 5+randint(5, 10))
-		case "healer": return fmt.Sprintf("%s нанес урон противнику равный %d.", name, 5+randint(-3, -1))
-		default: return "неизвестный класс персонажа"
+	case "warrior":
+		return fmt.Sprintf("%s нанес урон противнику равный %d.", name, 5+randint(3, 5))
+	case "mage":
+		return fmt.Sprintf("%s нанес урон противнику равный %d.", name, 5+randint(5, 10))
+	case "healer":
+		return fmt.Sprintf("%s нанес урон противнику равный %d.", name, 5+randint(-3, -1))
+	default:
+		return "неизвестный класс персонажа"
 	}
 }
 
 // обратите внимание на "if else" и на "else"
 func defence(name, class string) string {
-	
+
 	switch class {
-		case "warrior": return fmt.Sprintf("%s блокировал %d урона.", name, 10+randint(5, 10))
-		case "mage": return fmt.Sprintf("%s блокировал %d урона.", name, 10+randint(-2, 2))
-		case "healer": return fmt.Sprintf("%s блокировал %d урона.", name, 10+randint(2, 5))
-		default: return "неизвестный класс персонажа"
+	case "warrior":
+		return fmt.Sprintf("%s блокировал %d урона.", name, 10+randint(5, 10))
+	case "mage":
+		return fmt.Sprintf("%s блокировал %d урона.", name, 10+randint(-2, 2))
+	case "healer":
+		return fmt.Sprintf("%s блокировал %d урона.", name, 10+randint(2, 5))
+	default:
+		return "неизвестный класс персонажа"
 	}
 }
 
 // обратите внимание на "if else" и на "else"
 func special(name, class string) string {
-	
+
 	switch class {
-		case "warrior": return fmt.Sprintf("%s применил специальное умение `Выносливость %d`", name, 80+25)
-		case "mage": return fmt.Sprintf("%s применил специальное умение `Защита %d`", name, 10+30)
-		case "healer": return fmt.Sprintf("%s применил специальное умение `Защита %d`", name, 10+30)
-		default: return "неизвестный класс персонажа"
+	case "warrior":
+		return fmt.Sprintf("%s применил специальное умение `Выносливость %d`", name, 80+25)
+	case "mage":
+		return fmt.Sprintf("%s применил специальное умение `Защита %d`", name, 10+30)
+	case "healer":
+		return fmt.Sprintf("%s применил специальное умение `Защита %d`", name, 10+30)
+	default:
+		return "неизвестный класс персонажа"
 	}
 }
 
@@ -42,9 +54,12 @@ func special(name, class string) string {
 func training(name, class string) string {
 
 	switch class {
-		case "warrior": fmt.Printf("%s, ты Воитель - отличный боец ближнего боя.\n", name)
-		case "mage": fmt.Println("%s, ты Маг - превосходный укротитель стихий.\n", name)
-		case "healer": fmt.Println("%s, ты Лекарь - чародей, способный исцелять раны.\n", name)
+	case "warrior":
+		fmt.Printf("%s, ты Воитель - отличный боец ближнего боя.\n", name)
+	case "mage":
+		fmt.Println("%s, ты Маг - превосходный укротитель стихий.\n", name)
+	case "healer":
+		fmt.Println("%s, ты Лекарь - чародей, способный исцелять раны.\n", name)
 	}
 
 	fmt.Println("Потренируйся управлять своими навыками.")
@@ -58,14 +73,17 @@ func training(name, class string) string {
 	for cmd != "skip" {
 		fmt.Print("Введи команду: ")
 		fmt.Scanf("%s\n", &cmd)
-	
+
 		switch cmd {
-			case "attack": fmt.Println(attack(name, class))
-			case "defence": fmt.Println(defence(name, class))
-			case "special": fmt.Println(special(name, class))
+		case "attack":
+			fmt.Println(attack(name, class))
+		case "defence":
+			fmt.Println(defence(name, class))
+		case "special":
+			fmt.Println(special(name, class))
 		}
-	
-	return "тренировка окончена"
+
+		return "тренировка окончена"
 	}
 }
 
@@ -79,9 +97,12 @@ func choiseClass() string {
 		fmt.Scanf("%s\n", &class)
 
 		switch class {
-			case "warrior": fmt.Println("Воитель — дерзкий воин ближнего боя. Сильный, выносливый и отважный.")
-			case "mage": fmt.Println("Маг — находчивый воин дальнего боя. Обладает высоким интеллектом.")
-			case "healer": fmt.Println("Лекарь — могущественный заклинатель. Черпает силы из природы, веры и духов.")
+		case "warrior":
+			fmt.Println("Воитель — дерзкий воин ближнего боя. Сильный, выносливый и отважный.")
+		case "mage":
+			fmt.Println("Маг — находчивый воин дальнего боя. Обладает высоким интеллектом.")
+		case "healer":
+			fmt.Println("Лекарь — могущественный заклинатель. Черпает силы из природы, веры и духов.")
 		}
 
 		fmt.Print("Нажми (Y), чтобы подтвердить выбор, или любую другую кнопку, чтобы выбрать другого персонажа: ")
